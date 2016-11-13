@@ -1,4 +1,4 @@
-const BASE = 60
+const { BASE } = require('../constants.js') 
 
 const volcaProps = {
     level: 7,
