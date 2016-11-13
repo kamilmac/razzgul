@@ -4,6 +4,7 @@
 // AUTO RECOGNIZE GUITAR 
 
 const midi = require('midi')
+const { BPM, SWING } = require('./constants.js')
 const clock = require('./clock.js')
 const seed = require('./seed.js')
 const progression = require('./progression.js')
@@ -11,9 +12,6 @@ const prototype = require('./prototype.js')
 const { playRandomNote, transpoze } = require('./manipulators.js')
 const ms20 = require('./instruments/ms20.js')
 const volca = require('./instruments/volca.js')
-
-const BPM = 130
-const SWING = 0.1
 
 prototype.extend()
 

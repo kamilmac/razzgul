@@ -1,16 +1,21 @@
-let i = 0
+const { guitarToNote } = require('../utils.js') 
+const { BASE } = require('../constants.js') 
+
 const play = (output, midi, duration) => {
     _midi = midi[0]
     if (_midi.pause) return false
+    const key = _midi.key.includes('_')
+        ? guitarToNote(_midi.key)
+        : _midi.key 
     output.sendMessage([
         144,
-        _midi.key + 60,
+        key + BASE,
         127
     ])
     setTimeout(
         () => output.sendMessage([
             128,
-            _midi.key + 60, 
+            key + BASE, 
             64
         ]), duration
     )
