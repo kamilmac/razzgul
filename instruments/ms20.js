@@ -1,14 +1,14 @@
-
-const play  = (output, note, duration) => {
+const play = (output, midi, duration) => {
+    if (midi.pause) return false
     output.sendMessage([
         144,
-        note,
+        midi.note,
         127
     ])
     setTimeout(
         () => output.sendMessage([
             128,
-            note, 
+            midi.note, 
             64
         ]), duration
     )

@@ -1,3 +1,8 @@
+// **TODO:
+// MAKE IT WORK,
+// FIX PROGRESSION INDEXING,
+// AUTO RECOGNIZE GUITAR 
+
 const midi = require('midi')
 const clock = require('./clock.js')
 const seed = require('./seed.js')
@@ -47,9 +52,9 @@ const volcaPipe = midi => midi._pipe_(
 )
 
 const play = midi => {
-
+    ms20.play(o1, midi.ms20, 20)
+    volca.play(o2, midi.volca)
 }
-
 
 const seq = progression.from(
     {
