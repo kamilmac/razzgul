@@ -1,14 +1,16 @@
+let i = 0
 const play = (output, midi, duration) => {
-    if (midi.pause) return false
+    _midi = midi[0]
+    if (_midi.pause) return false
     output.sendMessage([
         144,
-        midi.note,
+        _midi.key + 60,
         127
     ])
     setTimeout(
         () => output.sendMessage([
             128,
-            midi.note, 
+            _midi.key + 60, 
             64
         ]), duration
     )

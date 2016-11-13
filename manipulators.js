@@ -7,6 +7,7 @@ const playRandomNote = options => m => {
         ref.key = rNote
         ref.pause = false
     }
+    console.log("m", m);
     return m
 }
 

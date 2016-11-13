@@ -1,11 +1,11 @@
 const start = ({ options, progression, seed, player }) => {
-    let index = 0
     const intervalHolder = setInterval(() => {
-        const currentFlow = progression[index++]
+        const newSeed = seed.get()
+        const currentFlow = progression[newSeed.index]
         currentFlow
-            ? player(seed.get()._pipe_(...currentFlow))
+            ? player(newSeed._pipe_(...currentFlow))
             : clearInterval(intervalHolder)
-    }, 60 * 1000 / options.BPM / 8)
+    }, 50)
 }
 
 module.exports = {

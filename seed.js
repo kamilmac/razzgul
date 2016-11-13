@@ -1,4 +1,7 @@
+let index = 0
+
 const get = () => ({
+    index: index++,
     ms20: [
         {
             key: 0,
@@ -6,7 +9,7 @@ const get = () => ({
             duration: 20,
         }
     ],
-    sample: [
+    volca: [
         {
             key: 0,
             ignoreKey: true,
