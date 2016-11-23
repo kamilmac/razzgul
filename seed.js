@@ -6,6 +6,7 @@ const get = () => ({
         {
             key: 0,
             pause: true,
+            ignoreKey: false,
             duration: 20,
         }
     ],

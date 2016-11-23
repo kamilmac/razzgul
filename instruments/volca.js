@@ -1,3 +1,4 @@
+const { guitarToNote } = require('../utils.js') 
 const { BASE } = require('../constants.js') 
 
 const volcaProps = {
@@ -50,16 +51,19 @@ const parseSpeed = note => {
 const play  = (output, channels) => {
     channels.forEach((ch, pad) => {
         if (ch.pause) return false
+        const key = ch.key.toString().includes('_')
+            ? guitarToNote(_midi.key)
+            : ch.key
         if (!ch.ignoreKey) {
             output.sendMessage([
                 176 + pad, 
                 43,
-                parseSpeed(ch.key)
+                parseSpeed(key)
             ])
         }
         output.sendMessage([
             144 + pad,
-            ch.key + 60,
+            key + 60,
             127
         ])
     })

@@ -16,11 +16,11 @@ prototype.extend()
 
 const o1 = new midi.output()
 o1.openPort(0)
-const o2 = new midi.output()
-o2.openPort(1)
+// const o2 = new midi.output()
+// o2.openPort(1)
 
 
-
+const 
 
 
 const ms20Pipe = midi => midi._pipe_(
@@ -30,7 +30,7 @@ const ms20Pipe = midi => midi._pipe_(
                 ['1_0', '2_2',  '3_2', '4_1', '5_0', '6_0'],
                 ['1_0', '2_0',  '3_2', '4_2', '5_1', '6_0'],
             ],
-            interval: 32,
+            interval: 64,
             index: midi.index,
         }),
         interval: 1,
@@ -40,29 +40,22 @@ const ms20Pipe = midi => midi._pipe_(
 
 
 const volcaPipe = midi => midi._pipe_(
-    playRandomNote({
-        notes: iterateNotes({
-            list: [
-                [0],
-                [-5],
-            ],
-            interval: 32,
-            index: midi.index,
-        }),
-        interval: 1,
-        instr: ['volca', 8],
+    transpoze({
+        interval: 6,
+        pitch: [0, 3, 6],
+        instr: ['volca', 0],
     })
 )
 
 const play = midi => {
     ms20.play(o1, midi.ms20, 20)
-    volca.play(o2, midi.volca)
+    // volca.play(o2, midi.volca)
 }
 
 const seq = progression.from(
     {
         times: 2000,
-        flow: [ ms20Pipe, volcaPipe ],
+        flow: [ ms20Pipe ],
     }
 )
 
