@@ -25,9 +25,11 @@ const iterateNotes = ({ list, interval, index }) => {
     return list[i]
 }
 
+const getRandom = (...list) => list[Math.floor(Math.random() * list.length)]
 
 module.exports = {
     playRandomNote,
     transpoze,
     iterateNotes,
+    getRandom,
 }
